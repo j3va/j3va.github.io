@@ -3,20 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>> @j3va</title>
+  <title>@j3va</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    .links {
+      margin-top: 20px;
+    }
+    .links a {
+      margin: 0 10px;
+      color: #00ffff;
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+    }
+    .version-select {
+      margin: 15px 0;
+    }
+    select, button {
+      font-family: 'Orbitron', sans-serif;
+      padding: 10px;
+      margin: 5px;
+    }
+  </style>
 </head>
 <body>
   <div class="background"></div>
   <main class="container">
     <h1>J3WARE</h1>
     <p class="tagline">A free modification tool.</p>
-    <a class="download-btn" href="j3ware-latest.zip" download>
-      <i class="fas fa-download"></i> Download Latest
-    </a>
-    <p class="version">v1.0.0</p>
+
+    <div class="version-select">
+      <label for="version">Select Version:</label>
+      <select id="version">
+        <option value="v1.0.0">v1.0.0</option>
+        <option value="v1.1.0">v1.1.0</option>
+        <option value="v2.0.0">v2.0.0</option>
+      </select>
+      <a id="downloadBtn" class="download-btn" href="downloads/j3ware-v1.0.0.zip" download>
+        <i class="fas fa-download"></i> Download
+      </a>
+    </div>
+
+    <div class="links">
+      <a href="https://github.com/j3va" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://juggi.ng/j3va" target="_blank">Jugging Page</a>
+    </div>
   </main>
+
+  <script>
+    const versionSelect = document.getElementById('version');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    versionSelect.addEventListener('change', function () {
+      const selectedVersion = this.value;
+      downloadBtn.href = `downloads/j3ware-${selectedVersion}.zip`;
+    });
+  </script>
 </body>
 </html>
+
